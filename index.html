@@ -1,80 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>popup</title>
+  </head>
 
-</head>
-
-<body>
+  <body>
     <style>
-        :root {
-            --popupSize: 500px;
-        }
+      .cookie-wrapper {
+        display: none;
+        position: fixed;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80%;
+        background-color: #161616;
+        color: #fff;
+        padding: 2rem;
+        align-items: center;
+        border-radius: 16px;
+        z-index: 999;
+      }
 
-        .popup-wrapper {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 999;
-        }
+      .cookie-wrapper h2 {
+        font-size: 1.5rem;
+        font-family: 'Roboto', sans-serif;
+      }
+      .cookie-wrapper p {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+        font-family: 'Roboto', sans-serif;
+      }
+      .cookie-button {
+        background-color: #fff;
+        color: #000;
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: 700;
+      }
 
-        .popup-container {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            aspect-ratio: 5/4;
-            max-width: var(--popupSize);
-            width: 100%;
-            background: #fff;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-        }
+      .cookie-button-outlined {
+        background-color: transparent;
+        color: #fff;
+        border: 1px solid #fff;
+        padding: 0.5rem 1rem;
+        border-radius: 8px;
+        cursor: pointer;
+        text-decoration: none;
+        font-family: 'Roboto', sans-serif;
+      }
 
-        .image-wrapper {
-            position: relative;
-        }
+      .cookie-button-outlined:hover {
+        background-color: #fff;
+        color: #000;
+      }
 
-        .image-wrapper img {
-            max-width: var(--popupSize);
-            width: 100%;
-        }
+      .cookie-button-wrapper {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+      }
 
-        .image-wrapper .close-button {
-            padding: .2rem;
-            background-color: #fff;
-            position: absolute;
-            top: 0;
-            right: 0;
-        }
+      .cookie-button-outlined-wrapper {
+        display: flex;
+        gap: 1rem;
+      }
+
+      .cookie-button:hover {
+        background-color: #000;
+        color: #fff;
+      }
+
+      .cookie-icon {
+        position: absolute;
+        right: 24px;
+        top: 24px;
+      }
     </style>
 
-    <div class="popup-wrapper">
-        <div class="popup-container">
-            <div class="image-wrapper">
-                <span class="close-button">Fechar</span>
-                <img src="./comunicado-issaa.png" alt="lorem picsum">
-            </div>
+    <div class="cookie-wrapper">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        class="cookie-icon"
+      >
+        <path
+          fill="currentColor"
+          d="M10.5 10q.625 0 1.062-.438Q12 9.125 12 8.5t-.438-1.062Q11.125 7 10.5 7t-1.062.438Q9 7.875 9 8.5t.438 1.062Q9.875 10 10.5 10Zm-2 5q.625 0 1.062-.438Q10 14.125 10 13.5t-.438-1.062Q9.125 12 8.5 12t-1.062.438Q7 12.875 7 13.5t.438 1.062Q7.875 15 8.5 15Zm6.5 1q.425 0 .713-.288Q16 15.425 16 15t-.287-.713Q15.425 14 15 14t-.712.287Q14 14.575 14 15t.288.712Q14.575 16 15 16Zm-3 6q-2.075 0-3.9-.788q-1.825-.787-3.175-2.137q-1.35-1.35-2.137-3.175Q2 14.075 2 12q0-2.1.9-4.1q.9-2 2.513-3.45Q7.025 3 9.238 2.325q2.212-.675 4.837-.125q-.225 1.125.15 2.112q.375.988 1.125 1.663t1.775.925q1.025.25 2.15-.125q-.775 1.725.275 2.95T21.95 11q.225 2.225-.475 4.225q-.7 2-2.062 3.5q-1.363 1.5-3.275 2.388Q14.225 22 12 22Zm0-2q3.05 0 5.413-2.1q2.362-2.1 2.587-5.35q-1.25-.55-1.962-1.5q-.713-.95-.963-2.125q-1.925-.275-3.3-1.65q-1.375-1.375-1.7-3.3q-2-.05-3.513.725q-1.512.775-2.524 1.987Q5.025 7.9 4.513 9.325Q4 10.75 4 12q0 3.325 2.338 5.663Q8.675 20 12 20Zm0-8.1Z"
+        />
+      </svg>
+      <h2>
+        Este site utiliza cookies
+      </h2>
+      <p>
+        Nós armazenamos dados temporariamente para melhorar a sua experiência de
+        navegação e recomendar conteúdo de seu interesse. Ao utilizar nossos
+        serviços, você concorda com tal monitoramento.
+      </p>
+      <div class="cookie-button-wrapper">
+        <button class="cookie-button" onclick="acceptCookie()">Aceitar</button>
+        <div class="cookie-button-outlined-wrapper">
+          <a
+            class="cookie-button-outlined"
+            href="/politica-de-privacidade.pdf"
+            downlaod
+          >
+            Política de Privacidade
+          </a>
+          <a
+            class="cookie-button-outlined"
+            href="/politica-de-cookies.pdf"
+            downlaod
+          >
+            Política de Cookies
+          </a>
         </div>
+      </div>
     </div>
 
-
     <script>
-        const popup = document.querySelector('.popup-wrapper');
-        popup.addEventListener('click', () => {
-            popup.style.display = 'none';
-        });
+      const cookie_wrapper = document.querySelector('.cookie-wrapper')
 
+      function acceptCookie() {
+        cookie_wrapper.style.display = 'none'
+        localStorage.setItem('monopolio-cookie', 'true')
+      }
+
+      if (!localStorage.getItem('monopolio-cookie')) {
+        cookie_wrapper.style.display = 'block'
+      }
     </script>
-
-
-</body>
-
+  </body>
 </html>
